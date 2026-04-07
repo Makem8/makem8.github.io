@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 import { ArrowLeft, MapPin, Calendar, Coffee, Users, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
-import layoutMapImg from "../assets/layout-map.png";
+import layoutMapImg from "../assets/Screenshot 2026-04-07 202124.png";
 
 const visitReasons = [
   { name: "Meeting a friend", value: 10 },
