@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-handwriting: "Caveat", cursive;
+  
+  --color-brand-orange: #F96D41;
+  --color-brand-blue: #3B82F6;
+  --color-brand-yellow: #FBBF24;
+  --color-brand-dark: #1C1C1C;
+  --color-brand-light: #FAF9F6;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-orange selection:text-white;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
