@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight, Sparkles, Layout, MousePointer2, Coffee } from "lucide-react";
 import { Link } from "react-router-dom";
-import profileImg from "../assets/profile.jpg";
+import profileImg from "../assets/ChatGPT Image Feb 27, 2026, 01_45_42 PM.png";
 import cafeHeritageImg from "../assets/2024-07-13.webp";
 
 export default function Home() {
