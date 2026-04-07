@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { ArrowLeft, MapPin, Calendar, Coffee, Users, Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts";
+import layoutMapImg from "../assets/layout-map.png";
 
 const visitReasons = [
   { name: "Meeting a friend", value: 10 },
@@ -274,7 +275,7 @@ export default function CafeHeritage() {
               </div>
               <div className="bg-white p-2 rounded-2xl border border-black/10 shadow-sm overflow-hidden">
                 <img 
-                  src="/layout-map.png" 
+                  src={layoutMapImg} 
                   alt="Cafe Heritage Layout Map" 
                   className="w-full h-auto rounded-xl"
                   referrerPolicy="no-referrer"

@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
 import { ArrowRight, ArrowUpRight, Sparkles, Layout, MousePointer2, Coffee } from "lucide-react";
 import { Link } from "react-router-dom";
+import profileImg from "../assets/profile.jpg";
+import cafeHeritageImg from "../assets/2024-07-13.webp";
 
 export default function Home() {
   return (
@@ -22,7 +24,7 @@ export default function Home() {
               <div className="absolute inset-0 bg-brand-orange rounded-full rotate-6 group-hover:rotate-12 transition-transform duration-300" />
               <div className="absolute inset-0 bg-brand-blue rounded-full -rotate-6 group-hover:-rotate-12 transition-transform duration-300" />
               <img 
-                src="/profile.jpg" 
+                src={profileImg} 
                 alt="Markus" 
                 referrerPolicy="no-referrer"
                 className="relative w-32 h-32 rounded-full object-cover shadow-lg border-4 border-white transform group-hover:scale-105 transition-transform duration-300"
@@ -73,7 +75,7 @@ export default function Home() {
           <Link to="/project/cafe-heritage" className="group block">
             <div className="bg-white rounded-[2rem] p-3 border-2 border-black/5 hover:border-brand-orange/50 transition-all duration-300 h-full flex flex-col hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-orange/10">
               <div className="bg-[#F4F1ED] rounded-3xl aspect-[4/3] overflow-hidden relative mb-6 flex items-center justify-center p-8 group-hover:scale-[0.98] transition-transform duration-300">
-                <img src="2024-07-13.webp" alt="Cafe Heritage" className="absolute inset-0 w-full h-full object-cover z-0" referrerPolicy="no-referrer" />
+                <img src={cafeHeritageImg} alt="Cafe Heritage" className="absolute inset-0 w-full h-full object-cover z-0" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors duration-300 z-0" />
                 <div className="relative z-10 text-center transform group-hover:scale-105 transition-transform duration-500">
                   <h3 className="font-display font-bold text-5xl tracking-tighter text-white mb-2 uppercase drop-shadow-lg">Heritage</h3>

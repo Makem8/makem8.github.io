@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowLeft, VolumeX, Search, Layers, Cpu } from "lucide-react";
 import { Link } from "react-router-dom";
+import quietStudyImg from "../assets/quiet-study-finder.jpg";
 
 export default function QuietStudyFinder() {
   return (
@@ -71,7 +72,7 @@ export default function QuietStudyFinder() {
             
             {/* Screen 1: Map View */}
             <img 
-              src="/quiet-study-finder.jpg" 
+              src={quietStudyImg} 
               alt="Quiet Study Finder Prototype" 
               className="w-full max-w-md rounded-[2.5rem] shadow-2xl border-[10px] border-gray-900 object-cover"
             />
