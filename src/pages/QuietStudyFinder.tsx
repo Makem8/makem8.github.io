@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { ArrowLeft, VolumeX, Search, Layers, Cpu } from "lucide-react";
 import { Link } from "react-router-dom";
-import quietStudyImg from "../assets/quiet-study-finder.jpg";
+import quietStudyImg from "../assets/Screenshot 2026-04-07 224730.png";
 
 export default function QuietStudyFinder() {
   return (
