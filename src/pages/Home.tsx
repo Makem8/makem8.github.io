@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowRight, ArrowUpRight, Sparkles, Layout, MousePointer2, Coffee } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Sparkles, Layout, MousePointer2, Coffee, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import profileImg from "../assets/ChatGPT Image Feb 27, 2026, 01_45_42 PM.png";
 import cafeHeritageImg from "../assets/2024-07-13.webp";
@@ -50,11 +50,23 @@ export default function Home() {
             I'm a student at Aalto University specializing in <span className="text-brand-orange font-bold">Human-Computer Interaction</span> and software development. I'm passionate about building intuitive, user-centered applications: whether that involves designing a sustainable travel platform or prototyping smart hardware concepts. I love tackling complex problems and turning them into seamless, accessible digital experiences.
           </p>
           <div className="flex flex-wrap gap-4 items-center">
-            <a href="#work" className="bg-brand-dark text-white px-8 py-4 rounded-full font-bold hover:bg-brand-orange hover:-translate-y-1 transition-all shadow-lg hover:shadow-brand-orange/25 flex items-center gap-2">
+            <button 
+              onClick={() => document.getElementById('work')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-brand-dark text-white px-8 py-4 rounded-full font-bold hover:bg-brand-orange hover:-translate-y-1 transition-all shadow-lg hover:shadow-brand-orange/25 flex items-center gap-2 cursor-pointer"
+            >
               View Work <ArrowRight className="w-5 h-5" />
-            </a>
+            </button>
             <a href="mailto:markusosyrjala@gmail.com" className="bg-white border-2 border-black/10 text-brand-dark px-8 py-4 rounded-full font-bold hover:border-brand-blue hover:text-brand-blue hover:-translate-y-1 transition-all shadow-sm">
               Get in touch
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/markussyrjala/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-[#0A66C2] text-white p-4 rounded-full font-bold hover:-translate-y-1 transition-all shadow-lg hover:shadow-[#0A66C2]/25 flex items-center justify-center"
+              aria-label="LinkedIn Profile"
+            >
+              <Linkedin className="w-5 h-5 fill-current" />
             </a>
             <span className="hidden md:inline-block ml-4 font-handwriting text-2xl text-black/40 -rotate-6">
               Let's build something cool!
@@ -155,6 +167,36 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2">
                   <span className="px-4 py-1.5 bg-[#7B3F9E]/10 text-[#7B3F9E] rounded-full text-sm font-bold">Prototyping</span>
                   <span className="px-4 py-1.5 bg-black/5 text-black/70 rounded-full text-sm font-bold">Figma Make</span>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Project 4: Thesis */}
+          <Link to="/project/thesis" className="group block md:col-span-2">
+            <div className="bg-white rounded-[2rem] p-3 border-2 border-black/5 hover:border-blue-500/50 transition-all duration-300 h-full flex flex-col md:flex-row gap-6 hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-500/10">
+              <div className="bg-blue-500/5 rounded-3xl aspect-[21/9] md:w-2/3 relative flex items-center justify-center overflow-hidden group-hover:scale-[0.98] transition-transform duration-300">
+                <img src="https://picsum.photos/seed/thesis/800/400" alt="Thesis on UX Design" className="absolute inset-0 w-full h-full object-cover z-0 opacity-80 mix-blend-overlay" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/80 to-purple-600/80 z-0" />
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300 z-0" />
+                <div className="relative z-10 text-center transform group-hover:scale-105 transition-transform duration-500 px-6">
+                  <h3 className="font-display font-bold text-4xl md:text-5xl tracking-tighter text-white mb-2 drop-shadow-lg">UX in Social Media</h3>
+                  <p className="font-mono text-sm tracking-widest text-white/90 uppercase drop-shadow-md">Academic Thesis</p>
+                </div>
+                <div className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-lg z-10">
+                  <ArrowUpRight className="w-6 h-6 text-blue-600" />
+                </div>
+              </div>
+              <div className="px-5 py-6 md:w-1/3 flex flex-col justify-center">
+                <div>
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-blue-600 transition-colors">The Role of UX Design in Social Media</h3>
+                  <p className="text-black/60 mb-6 font-medium">
+                    A case study examining the relationship between social media, UX design, and user engagement, focusing specifically on TikTok.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-4 py-1.5 bg-blue-500/10 text-blue-600 rounded-full text-sm font-bold">UX Research</span>
+                  <span className="px-4 py-1.5 bg-black/5 text-black/70 rounded-full text-sm font-bold">Ethics</span>
                 </div>
               </div>
             </div>

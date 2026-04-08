@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import CafeHeritage from './pages/CafeHeritage';
 import AIPrototyping from './pages/AIPrototyping';
 import QuietStudyFinder from './pages/QuietStudyFinder';
+import Thesis from './pages/Thesis';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
             <Route path="/project/cafe-heritage" element={<CafeHeritage />} />
             <Route path="/project/ai-ux-design" element={<AIPrototyping />} />
             <Route path="/project/quiet-study-finder" element={<QuietStudyFinder />} />
+            <Route path="/project/thesis" element={<Thesis />} />
           </Routes>
         </main>
         <Footer />
