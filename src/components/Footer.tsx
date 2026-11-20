@@ -7,7 +7,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Markus.
           </p>
           <p className="text-sm text-black/40 mt-1 flex items-center gap-1 font-medium">
-            Designed with <span className="text-brand-orange">♥</span>, ☕, and lots of post-it notes.
+            Designed with <span className="text-brand-orange">♥</span>
           </p>
         </div>
         <div className="flex gap-6 text-sm font-bold">
