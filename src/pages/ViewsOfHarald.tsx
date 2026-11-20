@@ -125,7 +125,7 @@ export default function ViewsOfHarald() {
               </p>
             </div>
             <p className="text-sm text-white/45 mt-8 pt-6 border-t border-white/10 font-medium">
-              Project team: Markus Syrjälä, Peng Ying, Junyi Chen · Course: CS-E4200 (Aalto University)
+              Course: CS-E4200 · Aalto University (Team of 3)
             </p>
           </div>
         </section>

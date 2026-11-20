@@ -205,7 +205,7 @@ export default function MyCoursesCalendar() {
               </p>
             </div>
             <p className="text-sm text-white/45 mt-8 pt-6 border-t border-white/10 font-medium">
-              Group 5: Erik Gelcich, Tiia Mäkinen, Riyasdeen Samsudeen, Markus Syrjälä, Yan Weining · CS-E5230
+              Group 5 · Course: CS-E5230 (Aalto University)
             </p>
           </div>
         </section>

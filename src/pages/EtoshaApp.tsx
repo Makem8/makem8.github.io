@@ -368,7 +368,7 @@ export default function EtoshaApp() {
               </p>
             </div>
             <p className="text-sm text-white/45 mt-8 pt-6 border-t border-white/10 font-medium">
-              Group 16: Iris Kreinin, Inês Lameira Miranda Chabele Mabutana, Stina-Marie Maripuu, Markus Syrjälä, Sabrina Wong · CS-E5220
+              Group 16 · Course: CS-E5220 (Aalto University)
             </p>
           </div>
         </section>
