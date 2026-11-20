@@ -94,7 +94,7 @@ export default function MyCoursesCalendar() {
                   </li>
                   <li>
                     <strong className="block text-brand-dark mb-0.5">Think-Aloud Testing (6 students)</strong>
-                    Moderated 30-minute sessions covering 5 core tasks—locating the calendar, exporting, creating a recurring event, viewing details, and deleting—plus a SUS survey (42 issues found).
+                    Moderated 30-minute sessions covering 5 core tasks (locating the calendar, exporting, creating a recurring event, viewing details, and deleting) plus a SUS survey (42 issues found).
                   </li>
                 </ul>
               </div>
@@ -198,7 +198,7 @@ export default function MyCoursesCalendar() {
             <h2 className="text-3xl font-bold mb-6 text-teal-300">Reflection</h2>
             <div className="space-y-4 text-white/80 font-medium leading-relaxed text-lg">
               <p>
-                Running both inspection and user testing side by side showed why neither method is enough on its own. Independent heuristic reviews caught structural flaws and unclear wording that participants rarely articulated aloud, while moderated testing exposed real-world breakdowns—like how disorienting missing export feedback felt and the platform-specific Mac/Safari bug.
+                Running both inspection and user testing side by side showed why neither method is enough on its own. Independent heuristic reviews caught structural flaws and unclear wording that participants rarely articulated aloud, while moderated testing exposed real-world breakdowns, such as how disorienting missing export feedback felt and the platform-specific Mac/Safari bug.
               </p>
               <p>
                 Pilot testing also paid off immediately: it surfaced a privacy issue in asking students to import their personal calendars during a screen recording, leading us to drop that task from live testing and tighten the remaining instructions. While our small student sample (n=6) limits broad generalization, the strong overlap between expert findings and observed failures gave clear priority to what the development team should fix first.

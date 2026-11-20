@@ -1,8 +1,59 @@
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowLeft, Bot, Sparkles, Zap, LayoutTemplate, PenTool, Leaf, Map, Navigation, Train, Plane, ChevronRight, User, Battery, Wifi, Signal, ArrowRight } from "lucide-react";
+import { ArrowLeft, Bot, Sparkles, Zap, LayoutTemplate, PenTool, Play, Pause } from "lucide-react";
 import { Link } from "react-router-dom";
+import { assetUrl } from "../lib/assets";
+
+const prototypeScreens = [
+  {
+    src: assetUrl("/assets/aistudio/image_df28d13b.png"),
+    title: "Discover Home",
+    caption: "Editorial hero screen introducing low-impact rail, road, and water routes with a destination picker.",
+  },
+  {
+    src: assetUrl("/assets/aistudio/image_724ea7ff.png"),
+    title: "Route & Booking Flow",
+    caption: "Multi-step Amsterdam to Bergen night train checkout highlighting 87 kg CO2 saved compared to flying.",
+  },
+  {
+    src: assetUrl("/assets/aistudio/image_e5a5807e.png"),
+    title: "Traveler Impact Profile",
+    caption: "Personal sustainability overview tracking CO2 avoided, rail kilometers covered, and past trips.",
+  },
+];
+
+function formatTime(seconds: number): string {
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
+  const mins = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${mins}:${secs.toString().padStart(2, "0")}`;
+}
 
 export default function AIPrototyping() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+
+  const walkthroughVideoSrc = assetUrl("/assets/aistudio/20261120-2155-00.8365679_a07a1872.mp4");
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused || video.ended) {
+      void video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+  const handleSeek = (value: number) => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = value;
+    setCurrentTime(value);
+  };
+
   return (
     <div className="pt-24 pb-24">
       <div className="max-w-4xl mx-auto px-6">
@@ -75,181 +126,135 @@ export default function AIPrototyping() {
           </div>
         </section>
 
-        {/* Concrete Screens Section */}
+        {/* Concrete Screens & Interactive Walkthrough Section */}
         <section className="mb-24">
-          <h2 className="text-3xl font-bold mb-8">High-Fidelity Prototypes</h2>
-          <p className="text-xl text-black/70 mb-12 max-w-2xl font-medium">
-            Here are the concrete screens for the sustainable travel app, <strong className="text-brand-blue">EcoJourney</strong>. The layouts, copy, and visual hierarchy were iteratively generated and refined using AI design tools.
+          <h2 className="text-3xl font-bold mb-4">High-Fidelity Prototype</h2>
+          <p className="text-xl text-black/70 mb-10 max-w-2xl font-medium">
+            Below is the interactive mobile prototype and key screens for the sustainable travel concept. Layouts, imagery, copy, and booking flows were iteratively generated and refined using AI design tools.
           </p>
 
-          <div className="flex flex-col lg:flex-row gap-12 items-center justify-center bg-brand-blue/5 p-8 md:p-12 rounded-[3rem] border-2 border-brand-blue/10 overflow-hidden">
-            
-            {/* Screen 1: Dashboard */}
-            <div className="w-[300px] h-[600px] bg-gray-50 rounded-[2.5rem] border-[10px] border-gray-900 overflow-hidden relative shadow-2xl shrink-0 flex flex-col">
-              {/* Status Bar */}
-              <div className="h-7 w-full flex justify-between items-center px-4 pt-1 text-[10px] font-bold text-black/80 z-20">
-                <span>9:41</span>
-                <div className="flex gap-1.5 items-center">
-                  <Signal className="w-3 h-3" />
-                  <Wifi className="w-3 h-3" />
-                  <Battery className="w-4 h-4" />
+          {/* Interactive Walkthrough Video */}
+          <div className="bg-[#F4F1ED] border border-black/8 rounded-[2.5rem] p-6 sm:p-10 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+              <div className="w-[244px] sm:w-[268px] mx-auto">
+                <div className="relative aspect-[9/19.2] rounded-[2.5rem] overflow-hidden bg-[#181818] shadow-2xl ring-1 ring-black/15">
+                  <video
+                    ref={videoRef}
+                    src={walkthroughVideoSrc}
+                    playsInline
+                    preload="metadata"
+                    onClick={togglePlay}
+                    onPlay={() => setIsPlaying(true)}
+                    onPause={() => setIsPlaying(false)}
+                    onEnded={() => setIsPlaying(false)}
+                    onLoadedMetadata={(e) => setDuration(e.currentTarget.duration || 0)}
+                    onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+                    className="w-full h-full object-cover object-center scale-[1.06] cursor-pointer"
+                  />
+
+                  {!isPlaying && (
+                    <button
+                      type="button"
+                      onClick={togglePlay}
+                      aria-label="Play prototype walkthrough"
+                      className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-white/90 text-brand-dark flex items-center justify-center shadow-xl hover:scale-105 transition-transform cursor-pointer"
+                    >
+                      <Play className="w-6 h-6 fill-current ml-0.5" />
+                    </button>
+                  )}
+                </div>
+
+                {/* External Controls Bar (keeps mobile bottom nav unobstructed) */}
+                <div className="mt-4 bg-brand-dark text-white rounded-2xl px-3 py-2 flex items-center gap-2.5 shadow-md">
+                  <button
+                    type="button"
+                    onClick={togglePlay}
+                    aria-label={isPlaying ? "Pause walkthrough" : "Play walkthrough"}
+                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors shrink-0 cursor-pointer"
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-3.5 h-3.5 fill-current" />
+                    ) : (
+                      <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
+                    )}
+                  </button>
+
+                  <input
+                    type="range"
+                    min={0}
+                    max={duration || 0}
+                    step={0.1}
+                    value={Math.min(currentTime, duration || 0)}
+                    onChange={(e) => handleSeek(Number(e.target.value))}
+                    aria-label="Seek prototype walkthrough"
+                    className="flex-1 min-w-0 h-1.5 accent-emerald-400 cursor-pointer"
+                  />
+
+                  <span className="font-mono text-[11px] text-white/75 tabular-nums shrink-0">
+                    {formatTime(currentTime)} / {formatTime(duration)}
+                  </span>
                 </div>
               </div>
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-gray-900 rounded-b-2xl z-30"></div>
 
-              {/* App Content */}
-              <div className="flex-1 overflow-y-auto pb-20 no-scrollbar">
-                <div className="p-5 pt-6">
-                  <div className="flex justify-between items-center mb-6">
-                    <div>
-                      <p className="text-xs text-gray-500 font-bold uppercase tracking-wider">Good morning,</p>
-                      <h3 className="text-2xl font-bold tracking-tight">Markus</h3>
-                    </div>
-                    <div className="w-10 h-10 bg-brand-blue/10 rounded-full flex items-center justify-center text-brand-blue">
-                      <User className="w-5 h-5" />
-                    </div>
-                  </div>
-
-                  {/* Impact Card */}
-                  <div className="bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl p-5 text-white mb-6 shadow-lg shadow-green-500/20 relative overflow-hidden">
-                    <div className="absolute -right-4 -bottom-4 opacity-20">
-                      <Leaf className="w-24 h-24" />
-                    </div>
-                    <div className="relative z-10">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Leaf className="w-4 h-4" />
-                        <span className="font-bold text-sm">Your Impact</span>
-                      </div>
-                      <div className="text-4xl font-bold mb-1 tracking-tighter">124 <span className="text-xl">kg</span></div>
-                      <p className="text-green-100 text-xs font-medium">CO₂ saved this month</p>
-                    </div>
-                  </div>
-
-                  <h4 className="font-bold mb-4 text-lg">Trending Eco-Destinations</h4>
-                  <div className="flex gap-4 overflow-x-auto pb-4 snap-x no-scrollbar">
-                    <div className="min-w-[160px] snap-start">
-                      <img src="https://picsum.photos/seed/forest/320/240" className="w-full h-32 object-cover rounded-2xl mb-3 shadow-sm" alt="Forest" referrerPolicy="no-referrer" />
-                      <p className="font-bold text-sm">Nuuksio Park</p>
-                      <p className="text-xs text-gray-500 font-medium">Finland • 12km away</p>
-                    </div>
-                    <div className="min-w-[160px] snap-start">
-                      <img src="https://picsum.photos/seed/lake/320/240" className="w-full h-32 object-cover rounded-2xl mb-3 shadow-sm" alt="Lake" referrerPolicy="no-referrer" />
-                      <p className="font-bold text-sm">Lake Bled</p>
-                      <p className="text-xs text-gray-500 font-medium">Slovenia • Train route</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bottom Nav */}
-              <div className="absolute bottom-0 left-0 right-0 h-20 bg-white/90 backdrop-blur-md border-t border-gray-100 flex justify-around items-center px-6 pb-4 z-20">
-                <div className="flex flex-col items-center text-emerald-600">
-                  <Map className="w-6 h-6 mb-1" />
-                  <span className="text-[10px] font-bold">Explore</span>
-                </div>
-                <div className="flex flex-col items-center text-gray-400">
-                  <Navigation className="w-6 h-6 mb-1" />
-                  <span className="text-[10px] font-bold">Routes</span>
-                </div>
-                <div className="flex flex-col items-center text-gray-400">
-                  <Leaf className="w-6 h-6 mb-1" />
-                  <span className="text-[10px] font-bold">Impact</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Screen 2: Route Planner */}
-            <div className="w-[300px] h-[600px] bg-gray-50 rounded-[2.5rem] border-[10px] border-gray-900 overflow-hidden relative shadow-2xl shrink-0 flex flex-col">
-              {/* Status Bar */}
-              <div className="h-7 w-full flex justify-between items-center px-4 pt-1 text-[10px] font-bold text-black/80 z-20">
-                <span>9:42</span>
-                <div className="flex gap-1.5 items-center">
-                  <Signal className="w-3 h-3" />
-                  <Wifi className="w-3 h-3" />
-                  <Battery className="w-4 h-4" />
-                </div>
-              </div>
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-gray-900 rounded-b-2xl z-30"></div>
-
-              {/* App Content */}
-              <div className="flex-1 overflow-y-auto pb-6 no-scrollbar">
-                <div className="bg-white px-5 pt-6 pb-5 border-b border-gray-100 mb-4">
-                  <div className="flex items-center gap-3 mb-5">
-                    <ArrowLeft className="w-5 h-5 text-gray-600" />
-                    <h3 className="text-xl font-bold tracking-tight">Compare Routes</h3>
-                  </div>
-                  <div className="flex items-center justify-between bg-gray-50 p-3 rounded-2xl border border-gray-100">
-                    <div className="font-bold text-sm">Helsinki</div>
-                    <ArrowRight className="w-4 h-4 text-gray-400" />
-                    <div className="font-bold text-sm">Stockholm</div>
-                  </div>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-2">
+                    Interactive Recording
+                  </p>
+                  <h3 className="text-2xl sm:text-3xl font-bold mb-3">
+                    End-to-End Prototype Flow
+                  </h3>
+                  <p className="text-black/70 font-medium leading-relaxed">
+                    The recording walks through the core user journey from discovering low-emission destinations to completing a train booking and reviewing personal carbon savings.
+                  </p>
                 </div>
 
-                <div className="px-5 space-y-4">
-                  {/* Option 1: Eco */}
-                  <div className="bg-white rounded-2xl p-4 border-2 border-emerald-500 shadow-sm relative">
-                    <div className="absolute -top-3 right-4 bg-emerald-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                      Recommended
-                    </div>
-                    <div className="flex justify-between items-start mb-4 mt-2">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600">
-                          <Train className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-sm">Ferry + Train</h4>
-                          <p className="text-xs text-gray-500 font-medium">14h 30m total</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-bold text-base">€ 85</div>
-                      </div>
-                    </div>
-                    <div className="bg-emerald-50 rounded-xl p-3 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-emerald-700">
-                        <Leaf className="w-4 h-4" />
-                        <span className="text-xs font-bold">15 kg CO₂</span>
-                      </div>
-                      <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-wider">-88% vs flight</span>
-                    </div>
+                <div className="space-y-4 pt-2 border-t border-black/10">
+                  <div>
+                    <h4 className="text-sm font-bold text-brand-dark">1. Discover & Eco-Scores</h4>
+                    <p className="text-sm text-black/65 font-medium leading-relaxed">
+                      Curated European destinations (such as Ljubljana and Kandersteg) paired with eco-score badges and an interactive map view.
+                    </p>
                   </div>
-
-                  {/* Option 2: Flight */}
-                  <div className="bg-white rounded-2xl p-4 border-2 border-gray-100 shadow-sm opacity-75">
-                    <div className="flex justify-between items-start mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-500">
-                          <Plane className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-sm">Direct Flight</h4>
-                          <p className="text-xs text-gray-500 font-medium">1h 00m total</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <div className="font-bold text-base">€ 60</div>
-                      </div>
-                    </div>
-                    <div className="bg-red-50 rounded-xl p-3 flex items-center justify-between">
-                      <div className="flex items-center gap-2 text-red-700">
-                        <Zap className="w-4 h-4" />
-                        <span className="text-xs font-bold">120 kg CO₂</span>
-                      </div>
-                      <span className="text-[10px] text-red-600 font-bold uppercase tracking-wider">High impact</span>
-                    </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-brand-dark">2. Low-Impact Booking Checkout</h4>
+                    <p className="text-sm text-black/65 font-medium leading-relaxed">
+                      Three-step reservation flow for an Amsterdam to Bergen night train, surfacing CO2 savings directly above traveler and payment details.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-brand-dark">3. Sustainability Profile</h4>
+                    <p className="text-sm text-black/65 font-medium leading-relaxed">
+                      Visual progress toward annual CO2 reduction goals alongside total rail kilometers and past journeys.
+                    </p>
                   </div>
                 </div>
-              </div>
-              
-              <div className="p-5 bg-white border-t border-gray-100 z-20">
-                <button className="w-full bg-emerald-600 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 flex justify-center items-center gap-2 hover:bg-emerald-700 transition-colors">
-                  Book Eco Route <ChevronRight className="w-4 h-4" />
-                </button>
               </div>
             </div>
+          </div>
 
+          {/* 3 Cropped Key Screenshots */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            {prototypeScreens.map((screen) => (
+              <figure key={screen.title} className="flex flex-col items-center sm:items-stretch">
+                <div className="w-full max-w-[260px] mx-auto aspect-[9/19.2] rounded-[2.35rem] overflow-hidden bg-[#181818] shadow-xl ring-1 ring-black/15 mb-4">
+                  <img
+                    src={screen.src}
+                    alt={screen.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-center scale-[1.035]"
+                  />
+                </div>
+                <figcaption className="text-center sm:text-left px-1 max-w-[260px] mx-auto sm:max-w-none">
+                  <h3 className="text-base font-bold text-brand-dark mb-1">
+                    {screen.title}
+                  </h3>
+                  <p className="text-xs text-black/60 font-medium leading-relaxed">
+                    {screen.caption}
+                  </p>
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 

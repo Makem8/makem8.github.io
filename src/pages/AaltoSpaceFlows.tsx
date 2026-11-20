@@ -75,7 +75,7 @@ export default function AaltoSpaceFlows() {
               </div>
               <h3 className="text-lg font-bold mb-2">1. Browse & Book</h3>
               <p className="text-black/70 font-medium leading-relaxed text-sm">
-                Users browse available campus rooms, open space details, pick a time slot, and confirm the booking—receiving clear transition feedback and an active reservation countdown bar.
+                Users browse available campus rooms, open space details, pick a time slot, and confirm the booking, receiving clear transition feedback and an active reservation countdown bar.
               </p>
             </div>
 
@@ -95,7 +95,7 @@ export default function AaltoSpaceFlows() {
               </div>
               <h3 className="text-lg font-bold mb-2">3. Room with a Screen</h3>
               <p className="text-black/70 font-medium leading-relaxed text-sm">
-                Focuses on filtered search—picking a date, selecting the "Screen" equipment filter, scanning matching spaces across campus buildings, and inspecting room amenities.
+                Focuses on filtered search: picking a date, selecting the "Screen" equipment filter, scanning matching spaces across campus buildings, and inspecting room amenities.
               </p>
             </div>
           </div>
@@ -107,7 +107,7 @@ export default function AaltoSpaceFlows() {
             <h2 className="text-3xl font-bold mb-6 text-purple-300">Peer Review & Reflection</h2>
             <div className="space-y-4 text-white/80 font-medium leading-relaxed text-lg">
               <p>
-                Two remote peer-review sessions with Group 6 caught dead buttons that I had overlooked and highlighted how differently designers organize their Figma files. While I structured frames around complete user flows first and wired interactions afterward, several peers built reusable components first or kept reference screenshots directly beside their frames—approaches that noticeably improved visual consistency.
+                Two remote peer-review sessions with Group 6 caught dead buttons that I had overlooked and highlighted how differently designers organize their Figma files. While I structured frames around complete user flows first and wired interactions afterward, several peers built reusable components first or kept reference screenshots directly beside their frames, approaches that noticeably improved visual consistency.
               </p>
               <p>
                 Implementing smooth scrolling containers and working around paywalled prototyping features in Figma were shared friction points across the group. Separating each user journey into its own testable flow kept debugging manageable and made peer testing much more focused.
@@ -124,7 +124,7 @@ export default function AaltoSpaceFlows() {
           <div>
             <p className="text-xs font-bold text-black/45 mb-1">Next Aalto Space Exploration</p>
             <p className="text-lg font-bold group-hover:text-[#7B3F9E] transition-colors">
-              Quiet Study Finder — AI-Assisted Feature Concept
+              Quiet Study Finder: AI-Assisted Feature Concept
             </p>
           </div>
           <ArrowRight className="w-5 h-5 text-black/40 group-hover:text-[#7B3F9E] group-hover:translate-x-1 transition-all" />

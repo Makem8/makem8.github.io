@@ -67,7 +67,7 @@ export default function QuietStudyFinder() {
               I designed a <strong>real-time noise layer</strong> integrated directly into the map and room detail screens. Powered by ambient room sensors, students can filter campus spaces into <em>Silent</em>, <em>Whisper</em>, or <em>Collaborative / Group Work</em> zones and inspect hourly decibel and occupancy trends before committing to a seat.
             </p>
             <p className="text-black/70 font-medium leading-relaxed">
-              The concept directly targets <strong>Nielsen's #1 Heuristic (Visibility of System Status)</strong>—surfacing live environmental context up front to cut guesswork and wasted trips.
+              The concept directly targets <strong>Nielsen's #1 Heuristic (Visibility of System Status)</strong>, surfacing live environmental context up front to cut guesswork and wasted trips.
             </p>
           </div>
           <div className="bg-[#F4F1ED] p-8 rounded-3xl border border-black/5">
@@ -152,7 +152,7 @@ export default function QuietStudyFinder() {
                 Prototyping with AI shifted my effort away from manual layout assembly toward interaction flow and how students would actually use the feature. Generating scannable room lists and placeholder activity charts took minutes instead of hours, which is particularly valuable when testing early concepts that might still change or be discarded.
               </p>
               <p>
-                That said, refining the details—map accuracy, icon placement, and brand alignment—still took most of the time. Even with those rough edges, the overall efficiency gain over starting from a blank canvas was substantial.
+                That said, refining the details (map accuracy, icon placement, and brand alignment) still took most of the time. Even with those rough edges, the overall efficiency gain over starting from a blank canvas was substantial.
               </p>
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function QuietStudyFinder() {
           <div>
             <p className="text-xs font-bold text-black/45 mb-1">Related Aalto Space Project</p>
             <p className="text-lg font-bold group-hover:text-[#7B3F9E] transition-colors">
-              Aalto Space Booking Flows — Interactive Figma Prototypes
+              Aalto Space Booking Flows: Interactive Figma Prototypes
             </p>
           </div>
           <ArrowRight className="w-5 h-5 text-black/40 group-hover:text-[#7B3F9E] group-hover:translate-x-1 transition-all" />

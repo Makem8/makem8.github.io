@@ -41,7 +41,7 @@ export default function ViewsOfHarald() {
           <div className="bg-emerald-50/70 border border-emerald-200/80 rounded-3xl p-8">
             <h2 className="text-xl font-bold mb-3 text-brand-dark">Context & Motivation</h2>
             <p className="text-lg text-black/75 leading-relaxed font-medium">
-              Long Finnish winters bring months of low daylight and minimal greenery, which can reduce motivation and mood when spending most of the day indoors. Existing VR nature apps disconnect users from their physical space and are impractical for everyday study or work. Inspired by Alvar Aalto's Otaniemi library bringing the sky indoors, we designed a lightweight AR prototype that augments only the scenery outside a window—leaving the indoor room completely visible.
+              Long Finnish winters bring months of low daylight and minimal greenery, which can reduce motivation and mood when spending most of the day indoors. Existing VR nature apps disconnect users from their physical space and are impractical for everyday study or work. Inspired by Alvar Aalto's Otaniemi library bringing the sky indoors, we designed a lightweight AR prototype that augments only the scenery outside a window, leaving the indoor room completely visible.
             </p>
           </div>
         </motion.div>
@@ -106,7 +106,7 @@ export default function ViewsOfHarald() {
               </div>
               <h3 className="text-lg font-bold mb-2">Lighting & Spatial Audio</h3>
               <p className="text-black/70 font-medium leading-relaxed">
-                Switching seasons triggers a subtle global ambient light shift (for example, cooler tones in winter) paired with 3D audio loops—birds in spring, wind in winter—spatialized at the window so volume scales with proximity.
+                Switching seasons triggers a subtle global ambient light shift (for example, cooler tones in winter) paired with 3D audio loops (birds in spring, wind in winter) spatialized at the window so volume scales with proximity.
               </p>
             </div>
           </div>

@@ -147,7 +147,7 @@ export default function EtoshaApp() {
           <div className="bg-[#8C1D18]/5 border border-[#8C1D18]/20 rounded-3xl p-8">
             <h2 className="text-xl font-bold mb-3 text-brand-dark">The Problem</h2>
             <p className="text-lg text-black/75 leading-relaxed font-medium">
-              Namibia's Etosha National Park is home to the largest population of black rhinos, yet poachers are frequently caught only after an animal has already been injured. Our goal was to design an interface that lowers the barrier to reporting suspicious activity in time—while accounting for mixed digital literacy among visitors and unreliable mobile connectivity inside the park.
+              Namibia's Etosha National Park is home to the largest population of black rhinos, yet poachers are frequently caught only after an animal has already been injured. Our goal was to design an interface that lowers the barrier to reporting suspicious activity in time, while accounting for mixed digital literacy among visitors and unreliable mobile connectivity inside the park.
             </p>
           </div>
         </motion.div>
@@ -257,7 +257,7 @@ export default function EtoshaApp() {
               </div>
               <h3 className="text-lg font-bold mb-2">Visitor Guide & Wildlife Info</h3>
               <p className="text-black/70 font-medium leading-relaxed">
-                By doubling as a practical park companion—covering history, weather, entrance fees, and species profiles (with dedicated black rhino conservation info)—tourists have a natural reason to keep the app open during their visit.
+                By doubling as a practical park companion covering history, weather, entrance fees, and species profiles (including black rhino conservation info), tourists have a natural reason to keep the app open during their visit.
               </p>
             </div>
 
@@ -277,7 +277,7 @@ export default function EtoshaApp() {
               </div>
               <h3 className="text-lg font-bold mb-2">Guided Conversational Reporting</h3>
               <p className="text-black/70 font-medium leading-relaxed">
-                Suspicious activity is reported anonymously through a step-by-step chat flow—asking clear questions for incident type, location, GPS coordinates, date, and urgency—followed by a summary confirmation to prevent accidental submissions.
+                Suspicious activity is reported anonymously through a step-by-step chat flow asking clear questions for incident type, location, GPS coordinates, date, and urgency, followed by a summary confirmation to prevent accidental submissions.
               </p>
             </div>
 
@@ -334,7 +334,7 @@ export default function EtoshaApp() {
                 <div className="aspect-[9/16] w-full rounded-2xl overflow-hidden border border-black/10 bg-[#F4F1ED] shadow-md mb-4">
                   <img
                     src={screen.src}
-                    alt={`${screen.role} — ${screen.title}`}
+                    alt={`${screen.role}: ${screen.title}`}
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
@@ -364,7 +364,7 @@ export default function EtoshaApp() {
                 Combining a casual tourism guide with an urgent anti-poaching tool was an interesting exercise in balancing tone and user groups. Early on, reporting was tucked inside the general safari chatbot, but moving it into its own top-level navigation tab kept the serious reporting flow distinct while still benefiting from the visitor guide's everyday engagement.
               </p>
               <p>
-                Merging five individual Figma concepts into a working Vue and Spring Boot application also exposed structural gaps—particularly in the report details and map sync views—which required redesigning parts of the UI during implementation. Designing for novice visitors alongside expert rangers reinforced how much clear text labels, reversible steps, and fail-safe confirmations matter when real-world stakes are high.
+                Merging five individual Figma concepts into a working Vue and Spring Boot application also exposed structural gaps, particularly in the report details and map sync views, which required redesigning parts of the UI during implementation. Designing for novice visitors alongside expert rangers reinforced how much clear text labels, reversible steps, and fail-safe confirmations matter when real-world stakes are high.
               </p>
             </div>
             <p className="text-sm text-white/45 mt-8 pt-6 border-t border-white/10 font-medium">

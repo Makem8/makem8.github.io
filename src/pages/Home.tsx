@@ -4,6 +4,7 @@ import { ArrowRight, ArrowUpRight, Sparkles, Coffee, Linkedin, BookOpen, Calenda
 import { Link } from "react-router-dom";
 import profileImg from "../assets/ChatGPT Image Feb 27, 2026, 01_45_42 PM.png";
 import cafeHeritageImg from "../assets/2024-07-13.webp";
+import socialUxThumbnailImg from "../assets/images/social_ux_thumbnail_1795210480946.jpg";
 import { assetUrl } from "../lib/assets";
 
 type Category = "all" | "research" | "prototyping" | "engineering";
@@ -149,7 +150,7 @@ export default function Home() {
                 <div className="px-5 pb-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-bold mb-2 group-hover:text-emerald-700 transition-colors">
-                      Views of Harald — AR Window Views
+                      Views of Harald: AR Window Views
                     </h3>
                     <p className="text-black/60 mb-5 font-medium leading-relaxed">
                       Passthrough augmented reality prototype for Meta Quest 3 that turns winter window views into customizable seasons with spatial audio.
@@ -346,7 +347,7 @@ export default function Home() {
                       Aalto Space Booking Flows
                     </h3>
                     <p className="text-black/60 mb-5 font-medium leading-relaxed">
-                      Three animated Figma prototypes—room booking, cancellation, and screen-filtered search—iterated through peer critique.
+                      Three animated Figma prototypes for room booking, cancellation, and screen-filtered search, iterated through peer critique.
                     </p>
                   </div>
                   <div className="flex items-center gap-2 text-xs font-bold text-black/45">
@@ -408,20 +409,27 @@ export default function Home() {
           {show(["prototyping"]) && (
             <Link to="/project/ai-ux-design" className="group block">
               <div className="bg-white rounded-[2rem] p-3 border border-black/8 hover:border-brand-blue/40 transition-all duration-300 h-full flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:shadow-brand-blue/10">
-                <div className="bg-gradient-to-br from-[#1D4ED8] via-[#2563EB] to-[#0F766E] rounded-3xl aspect-[4/3] relative mb-6 flex flex-col justify-between p-7 overflow-hidden group-hover:scale-[0.98] transition-transform duration-300">
-                  <div className="flex items-center justify-between text-white/80">
-                    <Leaf className="w-7 h-7" />
-                    <span className="font-mono text-xs tracking-widest uppercase">EcoJourney</span>
+                <div className="bg-[#0F2429] rounded-3xl aspect-[4/3] relative mb-6 flex flex-col justify-between p-7 overflow-hidden group-hover:scale-[0.98] transition-transform duration-300">
+                  <img
+                    src={assetUrl("/assets/aistudio/image_c9d677f5.png")}
+                    alt="Scenic Norwegian fjord and alpine railway from the AI-Driven UX Design prototype"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover object-right z-0 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#091820]/80 via-[#0B222C]/35 to-[#0A1929]/45 group-hover:from-[#091820]/85 transition-colors duration-300 z-0" />
+                  <div className="relative z-10 flex items-center justify-between text-white/85">
+                    <Leaf className="w-7 h-7 drop-shadow-sm" />
+                    <span className="font-mono text-xs tracking-widest uppercase drop-shadow-sm">EcoJourney</span>
                   </div>
-                  <div className="my-auto text-center transform group-hover:scale-105 transition-transform duration-500">
+                  <div className="relative z-10 my-auto text-center transform group-hover:scale-105 transition-transform duration-500">
                     <h3 className="font-display font-bold text-4xl md:text-5xl tracking-tighter text-white mb-2 drop-shadow-lg">
                       AI + UX
                     </h3>
-                    <p className="font-mono text-xs tracking-widest text-blue-100 uppercase drop-shadow-md">
+                    <p className="font-mono text-xs tracking-widest text-teal-100 uppercase drop-shadow-md">
                       Prototyping Study
                     </p>
                   </div>
-                  <div className="text-xs font-mono text-white/75 text-center pt-4 border-t border-white/15">
+                  <div className="relative z-10 text-xs font-mono text-white/80 text-center pt-4 border-t border-white/15">
                     Research · Wireframes · High-Fi Screens
                   </div>
                   <div className="absolute top-4 right-4 w-11 h-11 bg-white rounded-full flex items-center justify-center transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-lg z-10">
@@ -441,6 +449,8 @@ export default function Home() {
                     <span className="text-brand-blue">AI Prototyping</span>
                     <span aria-hidden="true">·</span>
                     <span>GenAI Workflow</span>
+                    <span aria-hidden="true">·</span>
+                    <span>Video Demo</span>
                   </div>
                 </div>
               </div>
@@ -451,12 +461,19 @@ export default function Home() {
           {show(["research"]) && (
             <Link to="/project/thesis" className="group block">
               <div className="bg-white rounded-[2rem] p-3 border border-black/8 hover:border-blue-600/40 transition-all duration-300 h-full flex flex-col hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-600/10">
-                <div className="bg-gradient-to-br from-[#1E3A8A] via-[#2563EB] to-[#4338CA] rounded-3xl aspect-[4/3] relative mb-6 flex flex-col justify-between p-7 overflow-hidden group-hover:scale-[0.98] transition-transform duration-300">
-                  <div className="flex items-center justify-between text-white/80">
-                    <BookOpen className="w-7 h-7" />
-                    <span className="font-mono text-xs tracking-widest uppercase">JYX Repository</span>
+                <div className="bg-[#081024] rounded-3xl aspect-[4/3] relative mb-6 flex flex-col justify-between p-7 overflow-hidden group-hover:scale-[0.98] transition-transform duration-300">
+                  <img
+                    src={socialUxThumbnailImg}
+                    alt="Endless cascade of smoked-glass mobile screens representing social media UX"
+                    referrerPolicy="no-referrer"
+                    className="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#050B1C]/85 via-[#0A1633]/40 to-[#060E24]/50 group-hover:from-[#050B1C]/90 transition-colors duration-300 z-0" />
+                  <div className="relative z-10 flex items-center justify-between text-white/85">
+                    <BookOpen className="w-7 h-7 drop-shadow-sm" />
+                    <span className="font-mono text-xs tracking-widest uppercase drop-shadow-sm">JYX Repository</span>
                   </div>
-                  <div className="my-auto text-center transform group-hover:scale-105 transition-transform duration-500">
+                  <div className="relative z-10 my-auto text-center transform group-hover:scale-105 transition-transform duration-500">
                     <h3 className="font-display font-bold text-4xl md:text-5xl tracking-tighter text-white mb-2 drop-shadow-lg">
                       UX in Social Media
                     </h3>
@@ -464,7 +481,7 @@ export default function Home() {
                       Academic Thesis · TikTok
                     </p>
                   </div>
-                  <div className="text-xs font-mono text-white/75 text-center pt-4 border-t border-white/15">
+                  <div className="relative z-10 text-xs font-mono text-white/80 text-center pt-4 border-t border-white/15">
                     Cognitive Load · Engagement · Ethical UX
                   </div>
                   <div className="absolute top-4 right-4 w-11 h-11 bg-white rounded-full flex items-center justify-center transform translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-lg z-10">
